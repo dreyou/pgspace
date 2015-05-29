@@ -1,3 +1,7 @@
+# Vagrant
+.vagrant
+space/id_*
+pgsql*/id_*
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

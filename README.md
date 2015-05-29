@@ -6,7 +6,7 @@ This is a prototype project, so it can not be used in production
 
 ##Description
  
-This set of provisions procedures create a 3 vagrant boxes:
+This set of provision procedures create 3 vagrant boxes:
 
   * space - box with installed Spacewalk and PgPool-II
   * pgsql0 - master postgresql server
@@ -16,10 +16,10 @@ Spacewalk can not work directly with pgpool due to pgpool Statement-Based nature
 I choose to use pgpool to control backends and run promote procedure.
 
 Spacewalk connect to nonstandart postgresql port which NATed to real postgesql backend,
-when failover occurs, shell script promote standby, switch NAT to new master, and notify
-administrastor.
+when failover occurs shell script promote standby server, switch NAT to new master and notify
+administrator.
 
-##Usage:
+##Usage
 
 Install VirtualBox or libvirt/qemu
 
@@ -49,11 +49,11 @@ Run ./prepare.sh - to prepare ssh keys
 
 Run ./up.sh - it run boxes in right order
 
-##ToDo:
+##ToDo
  
 Change common box configuration procedures from shell to salt, puppet, ansible ...
 
-Add right security settings (postges auth, sudo operation ...)
+Add valid security settings (postgres auth, sudo operation ...)
 
 ...
 

@@ -35,7 +35,7 @@ Vagrant.configure(2) do |config|
   # Spacewalk and Pgpool-II box, at second
   #
   config.vm.define :space do |space|
-    #space.vm.network "public_network"
+    space.vm.network "public_network"
     space.vm.network "private_network", ip: "192.168.33.9"
     space.vm.hostname = "space"
     space.vm.synced_folder "./space", "/vagrant"
@@ -298,7 +298,7 @@ else
   echo "Spacewalk installed"
   echo ""
   echo "Now you can try to Spacewalk instance: "
-  grep dhcp /etc/sysconfig/network-scripts/ifcfg-* | sed 's/^.*\(eth[0-9]\).*$/global \1/g' > z; ip addr show | grep -f z | awk '/inet / {print $2}' | cut -d '/' -f 1 | sed 's@^@https://@'
+  echo `grep dhcp /etc/sysconfig/network-scripts/ifcfg-* | sed 's/^.*\(eth[0-9]\).*$/global \1/g' > z; ip addr show | grep -f z | awk '/inet / {print $2}' | cut -d '/' -f 1 | sed 's@^@https://@'`
   echo ""
 fi
 #
